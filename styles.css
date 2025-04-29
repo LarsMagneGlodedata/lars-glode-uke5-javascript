@@ -27,6 +27,7 @@ body {
 
   .menu:checked {
     color: #333333;
+    background-color: #333333;
   }
 
   .bar1, .bar2, .bar3 {
