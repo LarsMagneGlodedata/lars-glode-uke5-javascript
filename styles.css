@@ -25,7 +25,7 @@ body {
     cursor: pointer;
   }
 
-  .menu:clicked {
+  .menu:active {
     color: #333333;
     background-color: #333333;
   }
