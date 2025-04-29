@@ -1,6 +1,8 @@
 * {
   box-sizing: border-box;
   color: white;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -23,11 +25,6 @@ body {
   .menu {
     background-color: #333333;
     cursor: pointer;
-  }
-
-  .menu:active {
-    color: #333333;
-    background-color: #333333;
   }
 
   .bar1, .bar2, .bar3 {
