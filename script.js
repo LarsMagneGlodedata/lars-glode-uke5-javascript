@@ -57,7 +57,7 @@ function businessCard() {
 businessCard();
 
 document.addEventListener("DOMContentLoaded", () => {
-    const menu = document.querySelector("button")
+    const menu = document.querySelector(".menu")
     const ul = document.querySelector("ul")
 
     menu.addEventListener("click", () => {
@@ -69,3 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
+document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.querySelector(".menu")
+
+    menu.addEventListener("click", () => {
+        menu.classList.toggle("change")     
+    })
+})
