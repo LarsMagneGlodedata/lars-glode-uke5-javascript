@@ -54,17 +54,40 @@ function businessCard() {
     const main = document.querySelector("main")
     main.textContent = `${firstName} ${lastName}, ${userAge}, ${title}.`
 }
-businessCard();
+// businessCard();
 
+
+// 
 document.addEventListener("DOMContentLoaded", () => {
     const menu = document.querySelector(".menu")
-    const ul = document.querySelector("ul")
+    let isNavOpen = false
+    function openNav() {
+        const push = document.querySelector(".pushback")
+        const mySidenav = document.querySelector("#mySidenav")
+        mySidenav.style.width = "250px";
+        push.style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        if (mySidenav.style.marginLeft === "250px") {
+        }
+        isNavOpen = true;
+    }
+  
+    function closeNav() {
+        const push = document.querySelector(".pushback")
+        const mySidenav = document.querySelector("#mySidenav")
+        mySidenav.style.width = "0";
+        push.style.marginLeft = "0"
+        document.body.style.backgroundColor = "#555";
+        if (push.style.marginLeft === "0") {
+        }
+        isNavOpen = false;
+    }
 
     menu.addEventListener("click", () => {
-        if (ul.style.display === "none" || ul.style.display === "") {
-            ul.style.display = "block"
+        if (isNavOpen) {
+            closeNav()
         } else {
-            ul.style.display = "none"
+            openNav()
         }
     })
 })
@@ -76,3 +99,5 @@ document.addEventListener("DOMContentLoaded", () => {
         menu.classList.toggle("change")     
     })
 })
+
+
