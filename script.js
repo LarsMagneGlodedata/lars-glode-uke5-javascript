@@ -97,11 +97,13 @@ console.log("-----------------------------------")
     const overflow = document.querySelector(".overflow")    
     const body = document.querySelector("body")
     const main = document.querySelector("main")
+    const overlay = document.querySelector(".overlay")
 
     // function for å åpne nav
      function openNav() {
         navMenu.style.height = "193px"
         body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        overlay.style.height = "100%"
         burger.classList.toggle("change")
         if (navMenu)
         navMenu.style.height === "193px"
@@ -112,6 +114,7 @@ console.log("-----------------------------------")
      function closeNav() {
         navMenu.style.height = "0"
         body.style.backgroundColor = "white"
+        overlay.style.height = "0"
         burger.classList.toggle("change")
         if (navMenu)
         navMenu.style.height === "0"
