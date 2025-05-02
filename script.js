@@ -96,12 +96,14 @@ console.log("-----------------------------------")
     const navMenu = document.querySelector(".navMenu")
     const main = document.querySelector("main")
     const overlay = document.querySelector(".overlay")
+    // const push = document.querySelector(".pushdown")
 
     // function for å åpne nav
      function openNav() {
         navMenu.style.height = "193px"
-        overlay.style.height = "100%"
+        overlay.style.height = "450%"
         burger.classList.toggle("change")
+        // push.style.height = "271px"
         if (navMenu)
         navMenu.style.height === "193px"
         isNavOpen = true
@@ -112,6 +114,7 @@ console.log("-----------------------------------")
         navMenu.style.height = "0"
         overlay.style.height = "0"
         burger.classList.toggle("change")
+        // push.style.height = "78px"
         if (navMenu)
         navMenu.style.height === "0"
         isNavOpen = false
@@ -156,7 +159,23 @@ console.log("-----------------------------------")
         }
     }
 
+    // hide/show header on scroll men berre hvis nav menyen ikkje e åpen
+    let prevScrollpos = window.scrollY;
+    window.onscroll = function hideHeader() {
+        let currentScrollPos = window.scrollY;
+        if (!isNavOpen) {
+            if (prevScrollpos > currentScrollPos) {
+                document.querySelector("header").style.top = "0"
+            }   else {
+                document.querySelector("header").style.top = "-78px"
+            }
+        } else {
+            document.querySelector("header").style.top = "0"
+        }
+        prevScrollpos = currentScrollPos;
+    }
+
  })
- 
+
 // 
 
