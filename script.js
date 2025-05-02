@@ -43,61 +43,121 @@ console.log(sum)
 // Array = liste av data
 // Object = key:value liste av data
 
+// 
+console.log("----------------------------------")
+// 
+
+
 function businessCard() {
-    console.log("Hei fra inni en funksjon");
+
+    // Variable som henter element
+    const h2Title = document.querySelector("#title")
+    console.log(h2Title)
+    const pDescription = document.querySelector("#description")
+    console.log(pDescription)
+    const imgImage = document.querySelector("#image")
+    console.log(imgImage)
+
+    // Variable som lagrer data
     let firstName = "Lars Magne"
     let lastName = "gløde"
-    let userAge = 27
-    let title = "Student"
-    console.log(`${firstName} ${lastName}, ${userAge}, ${title}.`)
+    const fullName = firstName + " " + lastName
+    console.log(fullName)
+    let description = "Student"
+    console.log(`${firstName} ${lastName}, ${description}.`)
+    console.log("Hei fra inni en funksjon");
+    let image = "https://images.unsplash.com/photo-1745512751454-710500481a82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
-    const main = document.querySelector("main")
-    main.textContent = `${firstName} ${lastName}, ${userAge}, ${title}.`
+    // const main = document.querySelector("main")
+    // main.textContent = `${firstName} ${lastName}, ${description}.`
+
+    // Manipulerer variabler sammen
+    h2Title.textContent = fullName
+    pDescription.textContent = description
+    imgImage.src = image
+    imgImage.alt = "Icebergs loom in a dark, cold ocean"
+    imgImage.style.width = "100%"
+    // imgImage.classList.add = "businessCardImage"
+
 }
 // businessCard();
 
+const button = document.querySelector("#button")
+button.addEventListener("click", businessCard)
 
+//
+console.log("-----------------------------------")
 // 
-document.addEventListener("DOMContentLoaded", () => {
-    const menu = document.querySelector(".menu")
-    let isNavOpen = false
-    function openNav() {
-        const push = document.querySelector(".pushback")
-        const mySidenav = document.querySelector("#mySidenav")
-        mySidenav.style.width = "250px";
-        push.style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-        if (mySidenav.style.marginLeft === "250px") {
-        }
-        isNavOpen = true;
-    }
-  
-    function closeNav() {
-        const push = document.querySelector(".pushback")
-        const mySidenav = document.querySelector("#mySidenav")
-        mySidenav.style.width = "0";
-        push.style.marginLeft = "0"
-        document.body.style.backgroundColor = "#555";
-        if (push.style.marginLeft === "0") {
-        }
-        isNavOpen = false;
-    }
 
-    menu.addEventListener("click", () => {
+// BURGER MENU
+ document.addEventListener("DOMContentLoaded", () => {
+    let isNavOpen = false
+    const burger = document.querySelector(".burger")
+    const navMenu = document.querySelector(".navMenu")
+    const overflow = document.querySelector(".overflow")    
+    const body = document.querySelector("body")
+    const main = document.querySelector("main")
+
+    // function for å åpne nav
+     function openNav() {
+        navMenu.style.height = "193px"
+        body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        burger.classList.toggle("change")
+        if (navMenu)
+        navMenu.style.height === "193px"
+        isNavOpen = true
+     }
+
+    //  function for å lukke nav
+     function closeNav() {
+        navMenu.style.height = "0"
+        body.style.backgroundColor = "white"
+        burger.classList.toggle("change")
+        if (navMenu)
+        navMenu.style.height === "0"
+        isNavOpen = false
+     }
+
+
+     // Åpne nav når du trykke på burgermenyen
+     burger.addEventListener("click", () => {
         if (isNavOpen) {
             closeNav()
         } else {
             openNav()
         }
-    })
-})
+     })
 
-document.addEventListener("DOMContentLoaded", () => {
-    const menu = document.querySelector(".menu")
 
-    menu.addEventListener("click", () => {
-        menu.classList.toggle("change")     
-    })
-})
 
+     // lukker nav når du trykker på main (utenfor menyen)
+     main.addEventListener("click", () => {
+        if (isNavOpen) {
+            closeNav()
+        } else {
+            // do nothing
+        }
+     })
+
+
+
+
+     //  åpner og lukker nav når du trykker på "m" og lukker nav når du trykker på "ESC"
+     let keypress = {
+     }
+     document.addEventListener("keydown", handler)
+     function handler(x) {
+        keypress[x.key] = true
+        if ((x.key === "m" || x.key === "Escape") && isNavOpen) {
+            closeNav()
+        } else if (x.key === "m") {
+            openNav()
+        } else {
+            // do nothing
+        }
+    }
+
+ })
+ 
+// 
 
